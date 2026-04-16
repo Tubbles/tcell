@@ -452,8 +452,31 @@ var linuxFKeys = map[rune]Key{
 	'E': KeyF5,
 }
 
+// matchRawSeq returns a registered raw sequence that prefixes ip.buf,
+// or the empty string if none matches. Caller must hold ip.l.
+func (ip *inputProcessor) matchRawSeq() string {
+	if len(ip.buf) == 0 || len(ip.rawSeqs) == 0 {
+		return ""
+	}
+	s := string(ip.buf)
+	for seq := range ip.rawSeqs {
+		if strings.HasPrefix(s, seq) {
+			return seq
+		}
+	}
+	return ""
+}
+
 func (ip *inputProcessor) scan() {
-	for _, r := range ip.buf {
+	for len(ip.buf) > 0 {
+		if ip.state == inpStateInit {
+			if seq := ip.matchRawSeq(); seq != "" {
+				ip.post(NewEventRaw(seq))
+				ip.buf = ip.buf[len([]rune(seq)):]
+				continue
+			}
+		}
+		r := ip.buf[0]
 		ip.buf = ip.buf[1:]
 		if r > 0x7F {
 			// 8-bit extended Unicode we just treat as such - this will swallow anything else queued up
