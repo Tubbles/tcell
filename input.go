@@ -90,6 +90,7 @@ type inputProcessor struct {
 	surrogate rune
 	nested    *inputProcessor
 	rawSeqs   map[string]struct{}
+	curEsc    []rune
 }
 
 // RegisterRawSeq records a raw escape sequence that, when observed
@@ -145,6 +146,10 @@ func (ip *inputProcessor) post(ev Event) {
 		case keyPasteEnd:
 			ev = NewEventPaste(false)
 		}
+	}
+
+	if ke, ok := ev.(*EventKey); ok && len(ip.curEsc) > 0 {
+		ke.esc = string(ip.curEsc)
 	}
 
 	ip.evch <- ev
@@ -470,6 +475,7 @@ func (ip *inputProcessor) matchRawSeq() string {
 func (ip *inputProcessor) scan() {
 	for len(ip.buf) > 0 {
 		if ip.state == inpStateInit {
+			ip.curEsc = ip.curEsc[:0]
 			if seq := ip.matchRawSeq(); seq != "" {
 				ip.post(NewEventRaw(seq))
 				ip.buf = ip.buf[len([]rune(seq)):]
@@ -478,6 +484,7 @@ func (ip *inputProcessor) scan() {
 		}
 		r := ip.buf[0]
 		ip.buf = ip.buf[1:]
+		ip.curEsc = append(ip.curEsc, r)
 		if r > 0x7F {
 			// 8-bit extended Unicode we just treat as such - this will swallow anything else queued up
 			ip.state = inpStateInit
