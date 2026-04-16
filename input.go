@@ -57,12 +57,15 @@ type InputProcessor interface {
 	ScanUTF8([]byte)
 	ScanUTF16([]uint16)
 	SetSize(rows, cols int)
+	RegisterRawSeq(string)
+	UnregisterRawSeq(string)
 }
 
 func NewInputProcessor(eq chan<- Event) InputProcessor {
 	return &inputProcessor{
-		evch: eq,
-		buf:  make([]rune, 0, 128),
+		evch:    eq,
+		buf:     make([]rune, 0, 128),
+		rawSeqs: map[string]struct{}{},
 	}
 }
 
@@ -86,6 +89,34 @@ type inputProcessor struct {
 	cols      int // used for clipping mouse coordinates
 	surrogate rune
 	nested    *inputProcessor
+	rawSeqs   map[string]struct{}
+}
+
+// RegisterRawSeq records a raw escape sequence that, when observed
+// verbatim in the input stream, should be emitted as an EventRaw rather
+// than parsed by the VT state machine.
+func (ip *inputProcessor) RegisterRawSeq(s string) {
+	if ip.nested != nil {
+		ip.nested.RegisterRawSeq(s)
+		return
+	}
+	ip.l.Lock()
+	if ip.rawSeqs == nil {
+		ip.rawSeqs = map[string]struct{}{}
+	}
+	ip.rawSeqs[s] = struct{}{}
+	ip.l.Unlock()
+}
+
+// UnregisterRawSeq removes a previously registered raw escape sequence.
+func (ip *inputProcessor) UnregisterRawSeq(s string) {
+	if ip.nested != nil {
+		ip.nested.UnregisterRawSeq(s)
+		return
+	}
+	ip.l.Lock()
+	delete(ip.rawSeqs, s)
+	ip.l.Unlock()
 }
 
 func (ip *inputProcessor) SetSize(w, h int) {

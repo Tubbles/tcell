@@ -281,6 +281,12 @@ func (s *cScreen) EnablePaste() {}
 
 func (s *cScreen) DisablePaste() {}
 
+// RegisterRawSeq is a no-op on Windows (no VT input processor hook).
+func (s *cScreen) RegisterRawSeq(string) {}
+
+// UnregisterRawSeq is a no-op on Windows (no VT input processor hook).
+func (s *cScreen) UnregisterRawSeq(string) {}
+
 func (s *cScreen) EnableFocus() {
 	s.Lock()
 	s.focusEnable = true

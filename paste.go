@@ -44,6 +44,13 @@ func (ev *EventPaste) End() bool {
 	return !ev.start
 }
 
+// Text is a compatibility shim retained from the legacy v2.0.x API where
+// EventPaste delivered the entire pasted string in a single event. In the
+// current tcell, bracketed paste is delivered as Start/keys/End events, so
+// this always returns the empty string. Callers should consume the
+// intervening EventKey events for the actual paste content.
+func (ev *EventPaste) Text() string { return "" }
+
 // NewEventPaste returns a new EventPaste.
 func NewEventPaste(start bool) *EventPaste {
 	return &EventPaste{t: time.Now(), start: start}

@@ -106,6 +106,7 @@ type simscreen struct {
 	fallback  map[rune]string
 	title     string
 	clipboard []byte
+	rawSeqs   map[string]struct{}
 
 	Screen
 	sync.Mutex
@@ -302,6 +303,24 @@ func (s *simscreen) EnableFocus() {
 }
 
 func (s *simscreen) DisableFocus() {
+}
+
+// RegisterRawSeq is a stub on the simulation screen. Tests can observe
+// registration via the underlying map if needed.
+func (s *simscreen) RegisterRawSeq(seq string) {
+	s.Lock()
+	if s.rawSeqs == nil {
+		s.rawSeqs = map[string]struct{}{}
+	}
+	s.rawSeqs[seq] = struct{}{}
+	s.Unlock()
+}
+
+// UnregisterRawSeq removes a previously registered raw sequence.
+func (s *simscreen) UnregisterRawSeq(seq string) {
+	s.Lock()
+	delete(s.rawSeqs, seq)
+	s.Unlock()
 }
 
 func (s *simscreen) Size() (int, int) {

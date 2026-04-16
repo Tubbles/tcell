@@ -162,6 +162,19 @@ type Screen interface {
 	// DisablePaste disables bracketed paste mode.
 	DisablePaste()
 
+	// RegisterRawSeq registers an arbitrary escape sequence that, when
+	// received verbatim from the terminal, will be delivered as an
+	// EventRaw carrying the sequence bytes. This lets callers bind
+	// terminal-specific or extension sequences that tcell's built-in
+	// parser does not decode on its own. Registered sequences are
+	// matched before normal terminfo-driven parsing.
+	RegisterRawSeq(string)
+
+	// UnregisterRawSeq removes a previously registered raw escape
+	// sequence. Sequences that were never registered are silently
+	// ignored.
+	UnregisterRawSeq(string)
+
 	// EnableFocus enables reporting of focus events, if your terminal supports it.
 	EnableFocus()
 
@@ -357,6 +370,8 @@ type screenImpl interface {
 	DisableMouse()
 	EnablePaste()
 	DisablePaste()
+	RegisterRawSeq(string)
+	UnregisterRawSeq(string)
 	EnableFocus()
 	DisableFocus()
 	HasMouse() bool

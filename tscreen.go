@@ -848,6 +848,21 @@ func (t *tScreen) DisablePaste() {
 	t.Unlock()
 }
 
+// RegisterRawSeq delegates to the input processor so that raw byte
+// sequences matching s will be emitted as EventRaw instead of parsed.
+func (t *tScreen) RegisterRawSeq(s string) {
+	if t.input != nil {
+		t.input.RegisterRawSeq(s)
+	}
+}
+
+// UnregisterRawSeq removes a previously registered raw sequence.
+func (t *tScreen) UnregisterRawSeq(s string) {
+	if t.input != nil {
+		t.input.UnregisterRawSeq(s)
+	}
+}
+
 func (t *tScreen) enablePasting(on bool) {
 	var s string
 	if on {
