@@ -67,6 +67,13 @@ func (ev *EventError) Error() string {
 	return ev.err.Error()
 }
 
+// Err returns the underlying error payload. This lets callers do a
+// typed comparison against sentinels like io.EOF instead of matching
+// strings from Error().
+func (ev *EventError) Err() error {
+	return ev.err
+}
+
 // NewEventError creates an ErrorEvent with the given error payload.
 func NewEventError(err error) *EventError {
 	return &EventError{t: time.Now(), err: err}
