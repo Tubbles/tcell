@@ -1,4 +1,4 @@
-module github.com/gdamore/tcell/v3
+module github.com/Tubbles/tcell/v3
 
 go 1.25.0
 

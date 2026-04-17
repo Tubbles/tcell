@@ -14,7 +14,7 @@
 
 package us
 
-import "github.com/gdamore/tcell/v3/vt"
+import "github.com/Tubbles/tcell/v3/vt"
 
 const (
 	UsInternationalLayout = "US International" // name of the US International

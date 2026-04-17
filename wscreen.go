@@ -24,7 +24,7 @@ import (
 	"syscall/js"
 	"unicode/utf8"
 
-	"github.com/gdamore/tcell/v3/tty"
+	"github.com/Tubbles/tcell/v3/tty"
 )
 
 // NewTerminfoScreen gets a screen.  The options are ignored for this platform.

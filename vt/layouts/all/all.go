@@ -16,4 +16,4 @@
 // This may substantially increase your binary size due to the extra data files.
 package all
 
-import _ "github.com/gdamore/tcell/v3/vt/layouts/us"
+import _ "github.com/Tubbles/tcell/v3/vt/layouts/us"

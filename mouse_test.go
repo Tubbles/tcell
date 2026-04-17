@@ -18,7 +18,7 @@ import (
 	"testing"
 	"time"
 
-	"github.com/gdamore/tcell/v3/vt"
+	"github.com/Tubbles/tcell/v3/vt"
 )
 
 func TestMouseEventFields(t *testing.T) {

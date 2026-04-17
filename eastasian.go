@@ -15,7 +15,7 @@
 package tcell
 
 import (
-	"github.com/gdamore/tcell/v3/internal/widthutil"
+	"github.com/Tubbles/tcell/v3/internal/widthutil"
 )
 
 var textWidthOptions = widthutil.Options()

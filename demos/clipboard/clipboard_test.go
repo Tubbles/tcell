@@ -19,8 +19,8 @@ import (
 	"testing"
 	"time"
 
-	"github.com/gdamore/tcell/v3"
-	"github.com/gdamore/tcell/v3/vt"
+	"github.com/Tubbles/tcell/v3"
+	"github.com/Tubbles/tcell/v3/vt"
 )
 
 // TestDemo tests the clipboard demo.
