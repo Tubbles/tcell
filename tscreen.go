@@ -33,8 +33,8 @@ import (
 	"time"
 	"unicode/utf8"
 
-	"github.com/gdamore/tcell/v3/color"
-	"github.com/gdamore/tcell/v3/vt"
+	"github.com/Tubbles/tcell/v3/color"
+	"github.com/Tubbles/tcell/v3/vt"
 	"golang.org/x/text/transform"
 )
 

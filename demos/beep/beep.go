@@ -20,7 +20,7 @@ import (
 	"os"
 	"time"
 
-	"github.com/gdamore/tcell/v3"
+	"github.com/Tubbles/tcell/v3"
 )
 
 func draw(s tcell.Screen, remain int) {

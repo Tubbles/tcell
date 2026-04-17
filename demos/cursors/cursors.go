@@ -18,8 +18,8 @@ import (
 	"fmt"
 	"os"
 
-	"github.com/gdamore/tcell/v3"
-	"github.com/gdamore/tcell/v3/color"
+	"github.com/Tubbles/tcell/v3"
+	"github.com/Tubbles/tcell/v3/color"
 )
 
 func main() {

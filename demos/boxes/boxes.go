@@ -22,8 +22,8 @@ import (
 	"os"
 	"time"
 
-	"github.com/gdamore/tcell/v3"
-	"github.com/gdamore/tcell/v3/color"
+	"github.com/Tubbles/tcell/v3"
+	"github.com/Tubbles/tcell/v3/color"
 )
 
 func makeBox(s tcell.Screen) {

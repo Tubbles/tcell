@@ -14,7 +14,7 @@
 
 package tcell
 
-import "github.com/gdamore/tcell/v3/tty"
+import "github.com/Tubbles/tcell/v3/tty"
 
 type Tty = tty.Tty
 

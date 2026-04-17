@@ -14,7 +14,7 @@
 
 package tcell
 
-import "github.com/gdamore/tcell/v3/tty"
+import "github.com/Tubbles/tcell/v3/tty"
 
 // EventResize is sent when the window size changes.
 type EventResize struct {
