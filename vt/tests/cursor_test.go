@@ -16,7 +16,7 @@ package tests
 import (
 	"testing"
 
-	"github.com/gdamore/tcell/v3/vt"
+	"github.com/Tubbles/tcell/v3/vt"
 )
 
 func TestCursorStyle(t *testing.T) {

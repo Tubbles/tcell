@@ -19,8 +19,8 @@ import (
 	"sync"
 	"time"
 
-	"github.com/gdamore/tcell/v3/color"
-	"github.com/gdamore/tcell/v3/tty"
+	"github.com/Tubbles/tcell/v3/color"
+	"github.com/Tubbles/tcell/v3/tty"
 )
 
 // mockTerm implements MockTerm.

@@ -18,8 +18,8 @@ import (
 	"fmt"
 	"testing"
 
-	"github.com/gdamore/tcell/v3/color"
-	"github.com/gdamore/tcell/v3/vt"
+	"github.com/Tubbles/tcell/v3/color"
+	"github.com/Tubbles/tcell/v3/vt"
 )
 
 type MockTerm = vt.MockTerm

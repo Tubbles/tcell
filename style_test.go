@@ -18,7 +18,7 @@ import (
 	"testing"
 	"unicode/utf8"
 
-	"github.com/gdamore/tcell/v3/color"
+	"github.com/Tubbles/tcell/v3/color"
 )
 
 func TestStyle(t *testing.T) {

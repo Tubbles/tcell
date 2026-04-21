@@ -18,8 +18,8 @@ import (
 	"slices"
 	"testing"
 
-	"github.com/gdamore/tcell/v3/vt"
-	"github.com/gdamore/tcell/v3/vt/layouts/us"
+	"github.com/Tubbles/tcell/v3/vt"
+	"github.com/Tubbles/tcell/v3/vt/layouts/us"
 )
 
 func TestGetLayout(t *testing.T) {

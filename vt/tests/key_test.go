@@ -18,7 +18,7 @@ import (
 	"testing"
 	"time"
 
-	"github.com/gdamore/tcell/v3/vt"
+	"github.com/Tubbles/tcell/v3/vt"
 )
 
 // TestScanCodes tests that the keys all have correct scan codes.
