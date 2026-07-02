@@ -21,8 +21,8 @@ import (
 	"testing"
 	"time"
 
-	"github.com/gdamore/tcell/v3/tty"
-	"github.com/gdamore/tcell/v3/vt"
+	"github.com/Tubbles/tcell/v3/tty"
+	"github.com/Tubbles/tcell/v3/vt"
 )
 
 // This just offers some very basic tests that do not require a full mock.

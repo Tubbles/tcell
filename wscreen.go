@@ -23,7 +23,7 @@ import (
 	"sync"
 	"syscall/js"
 
-	"github.com/gdamore/tcell/v3/tty"
+	"github.com/Tubbles/tcell/v3/tty"
 )
 
 // initialize installs the browser-backed TTY used by tScreen on js/wasm.

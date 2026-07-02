@@ -37,7 +37,7 @@ import (
 	"unicode/utf16"
 	"unicode/utf8"
 
-	"github.com/gdamore/tcell/v3/vt"
+	"github.com/Tubbles/tcell/v3/vt"
 )
 
 type inputState int

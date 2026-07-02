@@ -17,7 +17,7 @@ package tests
 import (
 	"testing"
 
-	"github.com/gdamore/tcell/v3/vt"
+	"github.com/Tubbles/tcell/v3/vt"
 )
 
 func TestMouse1006(t *testing.T) {

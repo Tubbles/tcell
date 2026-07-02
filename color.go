@@ -17,7 +17,7 @@ package tcell
 import (
 	ic "image/color"
 
-	"github.com/gdamore/tcell/v3/color"
+	"github.com/Tubbles/tcell/v3/color"
 )
 
 // Note that the entire contents of this file should be considered deprecated

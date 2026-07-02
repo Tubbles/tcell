@@ -18,8 +18,8 @@ import (
 	ic "image/color"
 	"testing"
 
-	"github.com/gdamore/tcell/v3/color"
-	"github.com/gdamore/tcell/v3/vt"
+	"github.com/Tubbles/tcell/v3/color"
+	"github.com/Tubbles/tcell/v3/vt"
 )
 
 // TestColorWrappers just tests the legacy API wrappers.

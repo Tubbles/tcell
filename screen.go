@@ -17,7 +17,7 @@ package tcell
 import (
 	"sync"
 
-	"github.com/gdamore/tcell/v3/color"
+	"github.com/Tubbles/tcell/v3/color"
 )
 
 // Screen represents the physical (or emulated) screen.

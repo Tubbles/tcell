@@ -28,7 +28,7 @@ import (
 	"unicode/utf8"
 
 	"github.com/clipperhouse/uax29/v2/graphemes"
-	"github.com/gdamore/tcell/v3/color"
+	"github.com/Tubbles/tcell/v3/color"
 )
 
 // Emulator is a terminal emulator API. It implements the state machinery

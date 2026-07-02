@@ -18,7 +18,7 @@ import (
 	"slices"
 	"testing"
 
-	"github.com/gdamore/tcell/v3/color"
+	"github.com/Tubbles/tcell/v3/color"
 )
 
 type noMouseBackend struct {

@@ -21,9 +21,9 @@ import (
 	"fmt"
 	"os"
 
-	"github.com/gdamore/tcell/v3"
-	"github.com/gdamore/tcell/v3/color"
-	"github.com/gdamore/tcell/v3/encoding"
+	"github.com/Tubbles/tcell/v3"
+	"github.com/Tubbles/tcell/v3/color"
+	"github.com/Tubbles/tcell/v3/encoding"
 )
 
 func displayDemo(s tcell.Screen) {
